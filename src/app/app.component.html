@@ -1,0 +1,29 @@
+<div class="container" [class.is-mobile]="mobileQuery.matches">
+  <mat-toolbar class="header">
+    <div class="primary-nav">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <a routerLink="home" routerLinkActive="active">
+        <img alt="Taylor and Francis Logo" data-src="https://taylorandfrancis.com/wp-content/themes/u_newtfg/assets/img/structure/logo.svg" class="logo ls-is-cached lazyloaded" src="https://taylorandfrancis.com/wp-content/themes/u_newtfg/assets/img/structure/logo.svg">
+      </a>
+    </div>
+    
+  </mat-toolbar>
+
+  <!-- <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0"> -->
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav [opened]="mobileQuery.matches ? 'false' : 'true'" [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item routerLink="home" routerLinkActive="active">Home</a>
+        <a mat-list-item routerLink="jobs" routerLinkActive="active">Fake Jobs</a>
+        <a mat-list-item routerLink="developers" routerLinkActive="active">Developers</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <app-footer></app-footer>
+</div>

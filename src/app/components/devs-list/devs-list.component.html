@@ -1,0 +1,55 @@
+<div class="component">
+  <div class="caption">
+    <p>Fictional contact details, actual people</p>
+    <p>but they are not on the job market (as far as I know).</p>
+  </div>
+  <div class="content">
+    <div class="panel-wrapper">
+      @for (developer of developers; track developer; let i = $index) {
+      @if (i <= 9 ) { <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h2>{{ developer.name }}</h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p><span>Email: </span>{{ developer.email }}</p>
+        <p><span>Strength: {{ developer.strength }}</span></p>
+        <p><span>Weakness: </span>{{ developer.weakness }}</p>
+        </mat-expansion-panel>
+        }
+        }
+    </div>
+    <div class="panel-wrapper">
+      @for (developer of developers; track developer; let i = $index) {
+      @if (i > 9 && i <= 19 ) {
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>   
+            <h2>{{ developer.name }}</h2>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p><span>Email: </span>{{ developer.email }}</p>
+        <p><span>Strength: {{ developer.strength }}</span></p>
+        <p><span>Weakness: </span>{{ developer.weakness }}</p>
+      </mat-expansion-panel>
+      }
+      }
+    </div>
+  </div>
+  <div class="panel-wrapper">
+    @for (developer of developers; track developer; let i = $index) {
+    @if (i > 19) {
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2>{{ developer.name }}</h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p><span>Email: </span>{{ developer.email }}</p>
+      <p><span>Strength: {{ developer.strength }}</span></p>
+      <p><span>Weakness: </span>{{ developer.weakness }}</p>
+    </mat-expansion-panel>
+    }
+    }
+  </div>
+</div>
