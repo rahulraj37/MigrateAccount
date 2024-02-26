@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JobsListComponent } from './jobs-list.component';
+import { MigrateAccountComponent } from './migrate-account.component';
 
-describe('JobsListComponent', () => {
-  let component: JobsListComponent;
-  let fixture: ComponentFixture<JobsListComponent>;
+describe('MigrateAccountComponent', () => {
+  let component: MigrateAccountComponent;
+  let fixture: ComponentFixture<MigrateAccountComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JobsListComponent]
+      imports: [MigrateAccountComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(JobsListComponent);
+    fixture = TestBed.createComponent(MigrateAccountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

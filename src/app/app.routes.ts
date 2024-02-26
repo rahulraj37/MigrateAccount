@@ -1,11 +1,9 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { JobsListComponent } from './components/jobs-list/jobs-list.component';
-// import { DevsListComponent } from './components/devs-list/devs-list.component';
+import { MigrateAccountComponent } from './components/migrate-account/migrate-account.component';
 
 export const routes: Routes = [
   { path: "home", component: HomeComponent },
-  { path: "jobs", component: JobsListComponent },
-  // { path: "developers", component: DevsListComponent },
+   { path: "ma", component: MigrateAccountComponent },
   { path: "**", redirectTo: "home" },
 ];

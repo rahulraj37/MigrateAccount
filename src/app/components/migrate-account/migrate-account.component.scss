@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center content horizontally */
+  padding: 20px; /* Add padding to the container */
+}
+
+.search-bar {
+  display: flex;
+  margin-bottom: 20px; /* Add space between search bar and table */
+}
+
+.search-bar input[type="text"] {
+  padding: 8px; /* Adjust input padding */
+  margin-right: 10px; /* Add space between input and button */
+  border: 1px solid #ccc; /* Add border to input */
+  border-radius: 4px; /* Add border radius */
+}
+
+.search-bar button {
+  padding: 8px 16px; /* Adjust button padding */
+  border: none;
+  background-color: #007bff; /* Button color */
+  color: white; /* Button text color */
+  border-radius: 4px; /* Add border radius */
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #0056b3; /* Button color on hover */
+}
