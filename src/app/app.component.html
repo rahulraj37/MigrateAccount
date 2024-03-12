@@ -11,7 +11,7 @@
   </mat-toolbar>
   
   <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav [mode]="'side'" [opened]="false" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+    <mat-sidenav #sidenav [mode]="'side'" [opened]="false" >
       <mat-nav-list>
         <a mat-list-item routerLink="home" routerLinkActive="active">Home</a>
         <a mat-list-item routerLink="ma" routerLinkActive="active">Migrate Account</a>
