@@ -6,105 +6,52 @@ import { HttpService } from '../shared/services/http.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-// export interface Job {
-//   jobID: number;
-//   title: string;
-//   company: string;
-//   location: string;
-//   description: string;
-//   requirements: string;
-//   contactEmail: string;
-// }
+import {MatRadioModule} from '@angular/material/radio';
 
 interface Submission {
-  submissionNumber: string;
-  accountType: string;
+  submissionId: number;
+  name: string;
+  email: string;
 }
 
 @Component({
   selector: 'app-migrate-account',
   standalone: true,
-  imports: [MatTableModule,MatIconModule,FormsModule,CommonModule],
+  imports: [MatTableModule,MatIconModule,FormsModule,CommonModule,MatRadioModule],
   templateUrl: './migrate-account.component.html',
   styleUrl: './migrate-account.component.scss'
 })
 export class MigrateAccountComponent {
-  emailAddress: string = '';
-  emailAddress2: string = '';
+  displayedColumns: string[] = ['submissionId', 'name', 'email'];
+
+  oldEmailAddress: string = '';
+  newEmailAddress: string = '';
   accountType: string = '';
   submissions: Submission[] = [];
-  emailFetched: boolean = false;
-  emailValidationMessage: string = '';
-  isNewEmailValidated: boolean = false;
-  displayedColumns: string[] = ['submissionNumber', 'accountType'];
-  dataSource: MatTableDataSource<Submission>;
+  isEmailValidated: boolean = false;
+  accountUserId: string = '';
 
-  constructor(private http: HttpClient) {
-    this.dataSource = new MatTableDataSource<Submission>(this.submissions);
+  constructor(private http: HttpClient) {}
+
+  searchOldData() {
+    // Placeholder method for searching old data based on email address
+    // Replace this with your actual implementation
+    console.log('Searching old data for email:', this.oldEmailAddress);
   }
 
-  fetchDetails() {
-    // Assuming API endpoint to fetch submissions
-    const apiUrl = 'https://example.com/api/submissions';
-
-    this.http.get<Submission[]>(apiUrl).subscribe(
-      (data) => {
-        this.submissions = data;
-        this.dataSource.data = this.submissions;
-      },
-      (error) => {
-        console.error('Error fetching submissions:', error);
-      }
-    );
+  Validateemail() {
+    // Placeholder method for email validation
+    // Replace this with your actual implementation
+    console.log('Validating new email:', this.newEmailAddress);
+    // Assuming validation is successful
+    this.isEmailValidated = true;
+    // Fetch account user id based on the new email address
+    this.accountUserId = '123456'; // Dummy account user id
   }
 
-  submitOldEmail(emailValue: string) {
-    console.log('Submitted old email:', emailValue);
-    // Here you can perform any additional actions with the submitted old email address
-  }
-
-  submitNewEmail(emailValue: string) {
-    console.log('Submitted new email:', emailValue);
-    // Here you can perform any additional actions with the submitted new email address
-    // For now, let's assume validation is successful
-    this.isNewEmailValidated = true;
-
-    // Fetch submissions for the new email address
-    this.fetchDetails();
+  migrateData() {
+    // Placeholder method for migrating data to the new email address
+    // Replace this with your actual implementation
+    console.log('Migrating data to new email:', this.newEmailAddress);
   }
 }
-// {
-  
-//   displayedColumns: string[] = ['jobID', 'title', 'company', 'location', 'description', 'requirements', 'contactEmail'];
-//   dataSource = new MatTableDataSource<Job>();
-//   subscription: Subscription | undefined;
-
-//   constructor(private httpService: HttpService) { }
-
-//   ngOnInit(): void {
-//     // this.getJobs();
-//   }
-
-//   getJobs() {
-//     this.subscription = this.httpService.get('/jobs')
-//       .subscribe({
-//         next: (response: Job[]) => {
-//           this.dataSource.data = response;
-//         },
-//         error: (error: any) => {
-//           console.error('Error fetching jobs:', error);
-//         }
-//       });
-//   }
-  
-//   search(){
-//     this.getJobs();
-//   }
-
-//   ngOnDestroy(): void {
-//     if (this.subscription) {
-//       this.subscription.unsubscribe();
-//     }
-//   }
-
-// }

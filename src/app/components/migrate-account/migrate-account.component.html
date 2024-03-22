@@ -1,40 +1,79 @@
+<!-- migrate-account.component.html -->
+
 <div class="container">
   <div class="input-container">
-    <label for="email1">Old Email Address:</label>
+    <label for="oldEmail">Existing Email Address:</label>
     <div class="input-with-button">
-      <input type="email" id="email1" [(ngModel)]="emailAddress" #email1Input>
-      <button class="submit-button" (click)="submitOldEmail(email1Input.value)">Submit</button>
+      <input type="email" id="oldEmail" [(ngModel)]="oldEmailAddress">
+      <button class="submit-button search-button" (click)="searchOldData()">Email Validate</button>
+
+      <div class="radio-container">
+        <label class="radio-label">
+          <input type="radio" name="accountType" [(ngModel)]="accountType" value="Email" [disabled]="true">
+          Email
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="accountType" [(ngModel)]="accountType" value="ORCID" [disabled]="true">
+          ORCID
+        </label>
+      </div>
+      <div class="enhanced-text">Call Orcid API & PCS API. At the same time, fetch all the submissions related to the email account (if corresponding author) and list down in the table</div>
     </div>
-    <div class="radio-container">
-      <label class="radio-label">
-        <input type="radio" name="accountType" [checked]="accountType === 'Email'" disabled>
-        Email
-      </label>
-      <label class="radio-label">
-        <input type="radio" name="accountType" [checked]="accountType === 'ORCID'" disabled>
-        ORCID
-      </label>
+  
+  </div>
+  <div class="input-container">
+    <label for="newEmail">New Email Address:</label>
+    <div class="input-with-button">
+      <input type="email" id="newEmail" [(ngModel)]="newEmailAddress">
+      <button class="submit-button" [disabled]="!isEmailValidated" (click)="Validateemail()">Validate Email</button>
+      <div class="enhanced-text">
+        If the TnF option is set as selected, check whether the email exists in IAM through API. When the new email id exists, then the Migrate Submission button will be enabled. If not show a pop up that the user does not exist.
+      </div>
     </div>
+    
   </div>
 
   <div class="input-container">
-    <label for="email2">New Email Address:</label>
+    <label for="accountId">Account User Id:</label>
     <div class="input-with-button">
-      <input type="email" id="email2" [(ngModel)]="emailAddress2" #email2Input>
-      <button class="submit-button" (click)="submitNewEmail(email2Input.value)">Submit</button>
+      <input type="text" id="accountId" [(ngModel)]="accountUserId" disabled>
     </div>
   </div>
 
-  <div class="info-text">Info text goes here...</div>
-
   <div class="table-container">
-    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <!-- Table Columns -->
-    </mat-table>
+    <table mat-table [dataSource]="submissions" class="mat-elevation-z8">
+      <!-- Submission ID Column -->
+      <ng-container matColumnDef="submissionId">
+        <th mat-header-cell *matHeaderCellDef> Submission ID </th>
+        <td mat-cell *matCellDef="let submission"> {{ submission.submissionId }} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let submission"> {{ submission.name }} </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let submission"> {{ submission.email }} </td>
+      </ng-container>
+
+      <!-- Define columns -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
   </div>
 
-  <button class="migration-button" [disabled]="!isNewEmailValidated">Migrate Data</button>
+  <div *ngIf="submissions.length === 0 && oldEmailAddress !== ''" class="message">No submissions found for the provided email.</div>
 
-  <div *ngIf="submissions.length === 0 && emailFetched" class="message">No submissions found for the provided email.</div>
-  <div *ngIf="emailValidationMessage" class="message">{{ emailValidationMessage }}</div>
+  <!-- Enhanced Text -->
+  
+
+  <div class="input-container">
+    <div class="input-with-button">
+      <button class="submit-button" [disabled]="!isEmailValidated" (click)="migrateData()">Migrate Account</button>
+    </div>
+  </div>
 </div>
