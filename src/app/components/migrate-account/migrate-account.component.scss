@@ -1,31 +1,144 @@
+// // .container {
+// //   display: flex;
+// //   flex-direction: column; /* Stack elements vertically */
+// //   align-items: center; /* Center content horizontally */
+// //   padding: 20px; /* Add padding to the container */
+// // }
+
+// // .search-bar {
+// //   display: flex;
+// //   margin-bottom: 20px; /* Add space between search bar and table */
+// // }
+
+// // .search-bar input[type="text"] {
+// //   padding: 8px; /* Adjust input padding */
+// //   margin-right: 10px; /* Add space between input and button */
+// //   border: 1px solid #ccc; /* Add border to input */
+// //   border-radius: 4px; /* Add border radius */
+// // }
+
+// // .search-bar button {
+// //   padding: 8px 16px; /* Adjust button padding */
+// //   border: none;
+// //   background-color: #007bff; /* Button color */
+// //   color: white; /* Button text color */
+// //   border-radius: 4px; /* Add border radius */
+// //   cursor: pointer;
+// // }
+
+// // .search-bar button:hover {
+// //   background-color: #0056b3; /* Button color on hover */
+// // }
+// // ------------------------------------------------------
+// .form-group {
+//   margin-bottom: 15px;
+//  }
+ 
+//  label {
+//   display: block;
+//   margin-bottom: 5px;
+//  }
+ 
+//  input[type="email"] {
+//   width: 15%;
+//   padding: 10px;
+//   margin-bottom: 10px;
+//   border: 1px solid #ccc;
+//   border-radius: 4px;
+//  }
+ 
+//  button.btn {
+//   background-color: #007bff;
+//   color: white;
+//   padding: 10px 15px;
+//   border: none;
+//   border-radius: 4px;
+//   cursor: pointer;
+//  }
+ 
+//  button.btn:hover {
+//   background-color: #0056b3;
+//  }
+/* app.component.css */
 .container {
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  align-items: center; /* Center content horizontally */
-  padding: 20px; /* Add padding to the container */
+  flex-direction: column;
+  align-items: stretch;
+  // max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.search-bar {
+.input-container, .radio-container {
   display: flex;
-  margin-bottom: 20px; /* Add space between search bar and table */
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.search-bar input[type="text"] {
-  padding: 8px; /* Adjust input padding */
-  margin-right: 10px; /* Add space between input and button */
-  border: 1px solid #ccc; /* Add border to input */
-  border-radius: 4px; /* Add border radius */
+.input-container label, .radio-container label {
+  margin-right: 10px;
 }
 
-.search-bar button {
-  padding: 8px 16px; /* Adjust button padding */
+.input-container input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.input-container .submit-button, .migration-button {
+  padding: 8px 16px;
+  border-radius: 5px;
   border: none;
-  background-color: #007bff; /* Button color */
-  color: white; /* Button text color */
-  border-radius: 4px; /* Add border radius */
+  background-color: #007bff;
+  color: white;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.search-bar button:hover {
-  background-color: #0056b3; /* Button color on hover */
+.input-container .submit-button:hover, .migration-button:hover {
+  background-color: #0056b3;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+}
+
+.radio-label input {
+  margin-right: 5px;
+}
+
+.table-container {
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.info-text {
+  margin-bottom: 10px;
+}
+
+.message {
+  text-align: center;
+  margin-top: 10px;
+  color: #777;
+}
+
+.migration-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
