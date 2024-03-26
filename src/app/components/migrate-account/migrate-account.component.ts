@@ -22,7 +22,14 @@ interface Submission {
   styleUrl: './migrate-account.component.scss'
 })
 export class MigrateAccountComponent {
+toggleMigrationType(arg0: string) {
+throw new Error('Method not implemented.');
+}
   displayedColumns: string[] = ['submissionId', 'name', 'email'];
+  pageAlter: boolean = false;
+
+
+
 
   oldEmailAddress: string = '';
   newEmailAddress: string = '';
@@ -30,6 +37,7 @@ export class MigrateAccountComponent {
   submissions: Submission[] = [];
   isEmailValidated: boolean = false;
   accountUserId: string = '';
+migrationType: any;
 
   constructor(private http: HttpClient) {}
 
@@ -48,7 +56,9 @@ export class MigrateAccountComponent {
     // Fetch account user id based on the new email address
     this.accountUserId = '123456'; // Dummy account user id
   }
-
+  togglePage(page: string) {
+    this.pageAlter = page === 'TnF';
+  }
   migrateData() {
     // Placeholder method for migrating data to the new email address
     // Replace this with your actual implementation
