@@ -37,7 +37,7 @@
   background-color: #007bff;
   color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  // transition: background-color 0.3s ease;
 }
 
 .input-with-button .submit-button:hover {
@@ -94,21 +94,22 @@ th {
 }
 
 .toggle-button {
-  padding: 10px 20px; /* Increased padding for a more prominent appearance */
-  border-radius: 20px; /* Rounded borders */
-  border: 2px solid #007bff; /* Border color */
-  background-color: white; /* Inverse background color */
-  color: #007bff; /* Inverse text color */
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 2px solid #007bff;
+  background-color: white;
+  color: #007bff;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-  margin-right: 10px; /* Adjust the margin as needed */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-right: 10px;
 }
 
 .toggle-button:hover {
-  background-color: #007bff; /* Background color on hover */
-  color: white; /* Text color on hover */
+  background-color: #007bff;
+  color: white;
 }
 
 .toggle-button.active {
   background-color: #007bff;
+  color: white; /* Ensure text color is white for active buttons */
 }

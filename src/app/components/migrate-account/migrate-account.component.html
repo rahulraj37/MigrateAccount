@@ -1,12 +1,12 @@
 <div class="container">
   <div class="header-container">
-    <h1>Migration Account</h1>
+    <h1>Migration Account: {{ migrationType }}</h1>
     <div class="buttons-container">
       <button class="toggle-button" (click)="toggleMigrationType('ORCID')" [class.active]="migrationType === 'ORCID'">ORCID</button>
       <button class="toggle-button" (click)="toggleMigrationType('TnF')" [class.active]="migrationType === 'TnF'">TnF</button>
-    </div>
+          </div>
   </div>
-<div class="subcontainer" *ngIf="togglePage">
+<div class="subcontainer" *ngIf="pageAlter">
   <div class="input-container">
     <label for="oldEmail">Existing Email Address:</label>
     <div class="input-with-button">
@@ -20,7 +20,7 @@
     <label for="newEmail">New Email Address:</label>
     <div class="input-with-button">
       <input type="email" id="newEmail" [(ngModel)]="newEmailAddress">
-      <button class="submit-button" [disabled]="!isEmailValidated" (click)="Validateemail()">Submit</button>
+      <button class="submit-button" [disabled]="!isEmailValidated" (click)="validateEmail()">Submit</button>
       <div class="enhanced-text">
         <!-- If the TnF option is set as selected, check whether the email exists in IAM through API. When the new email id exists, then the Migrate Submission button will be enabled. If not show a pop up that the user does not exist. -->
       </div>
@@ -68,7 +68,7 @@
     </div>
   </div>
 </div>
-<div class="subcontainer" *ngIf="!togglePage">
+<div class="subcontainer" *ngIf="!pageAlter">
   <div class="input-container">
     <label for="oldEmail">Existing Email Address:</label>
     <div class="input-with-button">
@@ -82,7 +82,7 @@
     <label for="newEmail">New Email Address:</label>
     <div class="input-with-button">
       <input type="email" id="newEmail" [(ngModel)]="newEmailAddress">
-      <button class="submit-button" [disabled]="!isEmailValidated" (click)="Validateemail()">Submit</button>
+      <button class="submit-button" [disabled]="!isEmailValidated" (click)="validateEmail()">Submit</button>
       <div class="enhanced-text">
         Check whether the email exists in IAM through API. When the new email id exists, then the Migrate Submission button will be enabled. If not show a pop up that the user does not exist.
       </div>

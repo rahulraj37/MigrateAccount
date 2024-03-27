@@ -21,47 +21,46 @@ interface Submission {
   templateUrl: './migrate-account.component.html',
   styleUrl: './migrate-account.component.scss'
 })
-export class MigrateAccountComponent {
-toggleMigrationType(arg0: string) {
-throw new Error('Method not implemented.');
-}
+export class MigrateAccountComponent implements OnInit {
   displayedColumns: string[] = ['submissionId', 'name', 'email'];
+  
   pageAlter: boolean = false;
-
-
-
-
   oldEmailAddress: string = '';
   newEmailAddress: string = '';
   accountType: string = '';
   submissions: Submission[] = [];
   isEmailValidated: boolean = false;
   accountUserId: string = '';
-migrationType: any;
+  migrationType: string = ''; // Ensure migrationType is initialized
 
   constructor(private http: HttpClient) {}
 
+  ngOnInit() {
+    // Initialize migrationType to a default value
+    this.migrationType = 'ORCID'; // Assuming ORCID is the default migration type
+  }
+
+  toggleMigrationType(migrationType: string) {
+    this.migrationType = migrationType;
+    this.togglePage(this.migrationType); // Toggle page based on migration type
+  }
+
+  togglePage(migrationType: string) {
+    this.pageAlter = migrationType === 'TnF';
+  }
+
   searchOldData() {
-    // Placeholder method for searching old data based on email address
-    // Replace this with your actual implementation
     console.log('Searching old data for email:', this.oldEmailAddress);
   }
 
-  Validateemail() {
-    // Placeholder method for email validation
-    // Replace this with your actual implementation
+  validateEmail() {
     console.log('Validating new email:', this.newEmailAddress);
-    // Assuming validation is successful
     this.isEmailValidated = true;
     // Fetch account user id based on the new email address
     this.accountUserId = '123456'; // Dummy account user id
   }
-  togglePage(page: string) {
-    this.pageAlter = page === 'TnF';
-  }
+
   migrateData() {
-    // Placeholder method for migrating data to the new email address
-    // Replace this with your actual implementation
     console.log('Migrating data to new email:', this.newEmailAddress);
   }
 }
