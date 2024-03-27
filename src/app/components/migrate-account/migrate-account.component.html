@@ -6,7 +6,7 @@
       <button class="toggle-button" (click)="toggleMigrationType('TnF')" [class.active]="migrationType === 'TnF'">TnF</button>
           </div>
   </div>
-<div class="subcontainer" *ngIf="pageAlter">
+<div class="subcontainer" *ngIf="!pageAlter">
   <div class="input-container">
     <label for="oldEmail">Existing Email Address:</label>
     <div class="input-with-button">
@@ -68,7 +68,7 @@
     </div>
   </div>
 </div>
-<div class="subcontainer" *ngIf="!pageAlter">
+<div class="subcontainer" *ngIf="pageAlter">
   <div class="input-container">
     <label for="oldEmail">Existing Email Address:</label>
     <div class="input-with-button">
