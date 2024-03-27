@@ -24,25 +24,25 @@ interface Submission {
 export class MigrateAccountComponent implements OnInit {
   displayedColumns: string[] = ['submissionId', 'name', 'email'];
   
-  pageAlter: boolean = false;
-  oldEmailAddress: string = '';
-  newEmailAddress: string = '';
-  accountType: string = '';
+  pageAlter :boolean= false;
+  oldEmailAddress = '';
+  migrateemailAddress = '';
+  newEmailAddress = '';
+  accountUserId = '';
+  orcidEmailAddress = '';
+  neworcidEmailAddress = '';
+  migrationType = 'ORCID'; // Default migration type
+
   submissions: Submission[] = [];
-  isEmailValidated: boolean = false;
-  accountUserId: string = '';
-  migrationType: string = ''; // Ensure migrationType is initialized
+  isEmailValidated :boolean= false;
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-    // Initialize migrationType to a default value
-    this.migrationType = 'ORCID'; // Assuming ORCID is the default migration type
-  }
+  ngOnInit() {}
 
   toggleMigrationType(migrationType: string) {
     this.migrationType = migrationType;
-    this.togglePage(this.migrationType); // Toggle page based on migration type
+    this.togglePage(this.migrationType);
   }
 
   togglePage(migrationType: string) {
@@ -53,14 +53,19 @@ export class MigrateAccountComponent implements OnInit {
     console.log('Searching old data for email:', this.oldEmailAddress);
   }
 
+  searchOrcid() {
+    console.log('Searching orcid email:', this.orcidEmailAddress);
+  }
+
+  submitOrcid(){
+    console.log('Submitting new orcid email:', this.neworcidEmailAddress);
+  }
+
   validateEmail() {
-    console.log('Validating new email:', this.newEmailAddress);
-    this.isEmailValidated = true;
-    // Fetch account user id based on the new email address
-    this.accountUserId = '123456'; // Dummy account user id
+    console.log('Validating new email:', this.newEmailAddress);      
   }
 
   migrateData() {
-    console.log('Migrating data to new email:', this.newEmailAddress);
+    console.log('Migrating data to new email:', this.migrateemailAddress);
   }
 }
