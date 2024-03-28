@@ -27,7 +27,7 @@
   padding: 6px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  margin-right: 15px; /* Adjust the margin as needed */
+  margin-right: 15px; 
 }
 
 .input-with-button .submit-button {
@@ -37,8 +37,7 @@
   background-color: #007bff;
   color: white;
   cursor: pointer;
-  // transition: background-color 0.3s ease;
-}
+ }
 
 .input-with-button .submit-button:hover {
   background-color: #0056b3;
@@ -68,7 +67,7 @@ th {
   padding: 6px 100px;
   margin-top: 10px;
   color: #777;
-  font-size: 12px; /* Smaller font size */
+  font-size: 12px;
 }
 
 .message {
@@ -80,17 +79,17 @@ th {
 .header-container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Add space between header and buttons */
-  margin-bottom: 20px; /* Add space between header and input containers */
+  justify-content: space-between; 
+  margin-bottom: 20px; 
 }
 
 .header-container h1 {
-  margin: 0; /* Reset margin */
+  margin: 0; 
 }
 
 .buttons-container {
-  display: flex; /* Use flexbox for button alignment */
-  align-items: center; /* Center-align the buttons */
+  display: flex; 
+  align-items: center;
 }
 
 .toggle-button {
@@ -111,5 +110,5 @@ th {
 
 .toggle-button.active {
   background-color: #007bff;
-  color: white; /* Ensure text color is white for active buttons */
+  color: white; 
 }

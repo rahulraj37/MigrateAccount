@@ -8,7 +8,8 @@ import { MatSidenav, MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
-
+import { environment } from './../environments/environment';
+fetch(environment.apiUrl);
 @Component({
 	
 	selector: "app-root",

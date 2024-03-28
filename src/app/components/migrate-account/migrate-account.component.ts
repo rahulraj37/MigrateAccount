@@ -31,7 +31,7 @@ export class MigrateAccountComponent implements OnInit {
   accountUserId = '';
   orcidEmailAddress = '';
   neworcidEmailAddress = '';
-  migrationType = 'ORCID'; // Default migration type
+  migrationType = 'ORCID'; 
 
   submissions: Submission[] = [];
   isEmailValidated :boolean= false;
